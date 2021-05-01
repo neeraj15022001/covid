@@ -1,3 +1,7 @@
+import 'package:covid/components/Custom%20Elevated%20Button/customElevatedButton.dart';
+import 'package:covid/components/Custom%20Rich%20Text/CustomRichText.dart';
+import 'package:covid/components/Custom%20Text%20Field/customTextField.dart';
+import 'package:covid/components/Page%20Heading/CustomPageHeading.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,42 +26,22 @@ Widget _login(BuildContext context) {
             SizedBox(
               height: 40,
             ),
-            Text(
-              "Login",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 56,
-                  color: Color(0xff5F547C),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              textAlign: TextAlign.center,
+            CustomPageHeading(
+              heading: "Login",
+              textColor: Color(0xff5F547C),
             ),
             SizedBox(height: 72),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Enter Email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-              ),
-            ),
+            CustomTextField(textToBeShown: "Enter Email"),
             SizedBox(
               height: 28,
             ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: "Enter Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
+            CustomTextField(
+              textToBeShown: "Enter Password",
             ),
             SizedBox(
               height: 5,
             ),
             Container(
-              // color: Colors.red[100],
               height: 150,
               child: Stack(
                 children: [
@@ -80,22 +64,12 @@ Widget _login(BuildContext context) {
                     left: 0,
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text("Submit"),
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            Color(0xff5F547C),
-                          ),
-                          padding: MaterialStateProperty.all(
-                            EdgeInsets.all(20),
-                          ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                          ),
-                        ),
+                      child: CustomElevatedButton(
+                        borderRadius: 20.0,
+                        buttonColor: Color(0xff5F547C),
+                        fontColor: Colors.white,
+                        padding: 20.0,
+                        text: "Submit",
                       ),
                     ),
                   ),
@@ -114,26 +88,10 @@ Widget _login(BuildContext context) {
             SizedBox(
               height: 20,
             ),
-            RichText(
-              text: TextSpan(
-                text: 'Not Registered?',
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xff5F547C),
-                  ),
-                ),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: ' Register Here',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )),
-                ],
-              ),
-              textAlign: TextAlign.center,
+            CustomRichText(
+              regularText: "Not Registered? ",
+              boldText: "Register here",
+              fontColor: Color(0xff5F547C),
             )
           ],
         ),
